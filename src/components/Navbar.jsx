@@ -15,6 +15,12 @@ import {
     useColorModeValue,
     Image,
     useDisclosure,
+    Accordion,
+    AccordionItem,
+    AccordionButton,
+    AccordionPanel,
+    AccordionIcon,
+
 } from '@chakra-ui/react'
 import {
     HamburgerIcon,
@@ -82,6 +88,28 @@ export default function Navbar() {
                         </Popover>
                     </Box>
                 ))}
+                    <Button
+                        display={{ base: 'none', md: 'inline-flex' }}
+                        fontSize={'sm'}
+                        fontWeight={400}
+                        variant={'link'}
+                        onClick={() => navigate('/login')}
+                    >
+                        Login
+                    </Button>
+                    <Button
+
+                        fontSize={'sm'}
+                        fontWeight={600}
+                        color={'white'}
+                        bg={'teal.400'}
+                        _hover={{
+                            bg: 'teal.300',
+                        }}
+                        onClick={() => navigate('/signup')}
+                    >
+                        Signup
+                    </Button>
             </Stack>
         )
     }
@@ -123,91 +151,14 @@ export default function Navbar() {
         )
     }
 
-    const MobileNav = () => {
-        return (
-            <Stack bg={useColorModeValue('white', 'gray.800')} p={4} display={{ md: 'none' }}>
-                {NAV_ITEMS.map((navItem) => (
-                    <MobileNavItem key={navItem.label} {...navItem} />
-                ))}
-                <Button fontSize={'sm'} fontWeight={400} variant={'link'}>
-                    Login
-                </Button>
-                <Button
-                    // onClick={() => navigate('/signup')}
-                    // display={{ base: 'none', md: 'inline-flex' }}
-                    fontSize={'sm'}
-                    fontWeight={600}
-                    _hover={{
-                        bg: 'teal.300',
-                    }}>
-                    Signup
-                </Button>
-            </Stack>
-        )
-    }
 
-    const MobileNavItem = ({ label, children, href }) => {
-        const { isOpen, onToggle } = useDisclosure()
-        const navigate = useNavigate()
-
-        return (
-            <Stack spacing={4} onClick={children && onToggle}>
-                <Box
-                    py={2}
-                    onClick={() => navigate(href ?? '#')}
-                    justifyContent="space-between"
-                    alignItems="center"
-                    _hover={{
-                        textDecoration: 'none',
-                    }}>
-                    <Text fontWeight={600} color={useColorModeValue('gray.600', 'gray.200')}>
-                        {label}
-                    </Text>
-                    {children && (
-                        <Icon
-                            as={ChevronDownIcon}
-                            transition={'all .25s ease-in-out'}
-                            transform={isOpen ? 'rotate(180deg)' : ''}
-                            w={6}
-                            h={6}
-                        />
-                    )}
-                </Box>
-
-                <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
-                    <Stack
-                        mt={2}
-                        pl={4}
-                        borderLeft={1}
-                        borderStyle={'solid'}
-                        borderColor={useColorModeValue('gray.200', 'gray.700')}
-                        align={'start'}>
-                        {children &&
-                            children.map((child) => (
-                                <Box key={child.label} py={2} onClick={() => navigate(child.href)}>
-                                    {child.label}
-                                </Box>
-                            ))}
-                    </Stack>
-                </Collapse>
-            </Stack>
-        )
-    }
     DesktopSubNav.propTypes = {
         label: PropTypes.string,
         href: PropTypes.string,
         subLabel: PropTypes.string,
     }
 
-    MobileNavItem.propTypes = {
-        label: PropTypes.string,
-        children: PropTypes.array,
-        href: PropTypes.string,
-    }
 
-    MobileNav.propTypes = {
-        children: PropTypes.node,
-    }
 
     return (
         <Box position={
@@ -240,9 +191,7 @@ export default function Navbar() {
                     justify={'flex-end'}
                     direction={'row'}
                     spacing={6}>
-                    <Button onClick={() => navigate('/login')} fontSize={'sm'} fontWeight={400} variant={'link'}>
-                        Login
-                    </Button>
+
                     <Flex
                         flex={{ base: 0, lg: 'auto' }}
                         ml={{ base: -2 }}
@@ -254,16 +203,7 @@ export default function Navbar() {
                             aria-label={'Toggle Navigation'}
                         />
                     </Flex>
-                    <Button
-                        onClick={() => navigate('/signup')}
-                        display={{ base: 'none', md: 'inline-flex' }}
-                        fontSize={'sm'}
-                        fontWeight={600}
-                        _hover={{
-                            bg: 'teal.300',
-                        }}>
-                        Signup
-                    </Button>
+
                 </Stack>
             </Flex>
 
@@ -276,7 +216,84 @@ export default function Navbar() {
     )
 }
 
+const MobileNav = () => {
+    return (
+        <Stack bg={useColorModeValue('white', 'gray.800')} p={4} display={{ lg: 'none' }}>
+            {NAV_ITEMS.map((navItem) => (
+                <MobileNavItem key={navItem.label} {...navItem} />
+            ))}
+            <Flex justifyContent="center" gap={5}><Button fontSize={'sm'} fontWeight={400} variant={'link'}>
+                Login
+            </Button>
+            <Button
+                // onClick={() => navigate('/signup')}
+                // display={{ base: 'none', md: 'inline-flex' }}
+                fontSize={'sm'}
+                fontWeight={600}
+                _hover={{
+                    bg: 'teal.300',
+                }}>
+                Signup
+            </Button></Flex>
+        </Stack>
+    )
+}
 
+
+const MobileNavItem = ({ label, children, href }) => {
+    const navigate = useNavigate()
+
+    return (
+        <Accordion allowToggle>
+            <AccordionItem border="none">
+                <h2>
+                    <AccordionButton
+                        display={'flex'}
+
+                        onClick={() => navigate(href ?? '#')}
+                        justifyContent="space-between"
+                        alignItems="center"
+                        _hover={{
+                            textDecoration: 'none',
+                        }}>
+                        <Text fontWeight={600} color={useColorModeValue('gray.600', 'gray.200')}>
+                            {label}
+                        </Text>
+                        {children && (
+                            <AccordionIcon />
+                        )}
+                    </AccordionButton>
+                </h2>
+                {children && (
+                    <AccordionPanel >
+                        <Stack
+                            mt={2}
+                            pl={4}
+                            borderLeft={1}
+                            borderStyle={'solid'}
+                            align={'start'}>
+                            {children.map((child) => (
+                                <Box key={child.label} py={2} onClick={() => navigate(child.href)}>
+                                    {child.label}
+                                </Box>
+                            ))}
+                        </Stack>
+                    </AccordionPanel>
+                )}
+            </AccordionItem>
+        </Accordion>
+    )
+}
+
+MobileNavItem.propTypes = {
+    label: PropTypes.string,
+    children: PropTypes.array,
+    href: PropTypes.string,
+}
+
+MobileNav.propTypes = {
+    children: PropTypes.node,
+}
 const NAV_ITEMS = [
     {
         label: 'Home',
