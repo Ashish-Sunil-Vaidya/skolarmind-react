@@ -8,6 +8,8 @@ import slides from "../../public/slides";
 import { FaArrowRight, FaStar } from "react-icons/fa";
 import Footer from "../components/Footer";
 import PhotoGrid from "../components/PhotoGrid";
+import ctabg from '/CTAbg.png'
+import { base } from "framer-motion/client";
 
 
 const Home = () => {
@@ -107,7 +109,7 @@ export const AboutSection = () => {
 
 
     return (
-        <Box position="relative" p={{ base: "50px", md: "100px" }} bg="gray.50" display='flex'>
+        <Box position="relative" p={{ base: "50px", md: "100px" }}  display='flex'>
             <Flex direction={{ base: 'column', md: 'row' }} align="center" justify="space-between">
                 <Box flex={1} mr={{ md: 10 }} mb={{ base: 10, md: 0 }}>
                     <Stack spacing={4}>
@@ -160,7 +162,7 @@ export const CourseHighlights = () => {
     return (
         <Box position="relative" p={{
             base: "30px", md: "100px"
-        }} bg="gray.50" minh="100svh" display='flex'>
+        }}  minh="100svh" display='flex'>
             <Image position='absolute' width="200px" src={bg1} alt="BG1" opacity={.2} />
             <Image zIndex={0} position='absolute' width="100px" right={{
                 base: '0', md: '200'
@@ -270,7 +272,7 @@ export const KeyFeatures = () => {
     ];
 
     return (
-        <Box bg="gray.50" py="10" px="5" overflow='hidden'>
+        <Box  py="10" px="5" overflow='hidden'>
 
             <Heading color="teal" as="h2" textAlign="center" mb="8" fontSize="4xl">
                 What Sets Us Apart?
@@ -303,6 +305,11 @@ export const CTA = () => {
     return (
         <Box bg="teal" py="12" px="5">
             {/* Header Section */}
+            <Image position={{
+                base: 'relative', md: 'absolute'
+            }} mx={{
+                base: 'auto', md: '0'
+            }} src={ctabg} alt="Logo" w={{base:'90%',md:"400px"}} zIndex={0} />
             <VStack spacing={6}>
                 <Heading
                     color="white"

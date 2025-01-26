@@ -1,7 +1,11 @@
+import BreadCrumbs from "../components/BreadCrumbs";
+import { AboutSection } from "./Home";
+
 const About = () =>{
     return (
         <>
-            This is About Component
+            <BreadCrumbs />
+            <AboutSection />
         </>
     )
 }

@@ -5,6 +5,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { ChakraProvider } from '@chakra-ui/react'
 import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
+import ContactUs from './pages/ContactUs.jsx'
+import TermsAndConditions from './pages/TermsAndConditions.jsx'
+import Signup from './pages/Signup.jsx'
+import Login from './pages/Login.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "react-photo-album/rows.css";
 import '@fontsource/raleway/400.css'
@@ -24,9 +28,25 @@ const router = createBrowserRouter([{
       path: 'about',
       element: <About />,
     },
-
+    {
+      path: 'contact',
+      element: <ContactUs />,
+    },
+    {
+      path: 'terms',
+      element: <TermsAndConditions />,
+    },
+    {
+      path: 'signup',
+      element: <Signup />,
+    }
   ]
-}])
+},
+{
+  path: '/login',
+  element: <Login />,
+}
+])
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

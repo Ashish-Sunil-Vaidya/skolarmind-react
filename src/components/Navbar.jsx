@@ -29,16 +29,17 @@ import {
     ChevronRightIcon,
 } from '@chakra-ui/icons'
 import logo from '../assets/logo.png'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import PropTypes from 'prop-types'
 import Header from './Header'
+import { useEffect } from 'react'
 
 export default function Navbar() {
     const { isOpen, onToggle } = useDisclosure()
-    const navigate = useNavigate()
-    const location = useLocation()
-    const DesktopNav = ({ pathname }) => {
+
+
+    const DesktopNav = () => {
         const linkColor = useColorModeValue('gray.600', 'gray.200')
         const linkHoverColor = useColorModeValue('gray.800', 'white')
         const popoverContentBgColor = useColorModeValue('white', 'gray.800')
@@ -55,13 +56,8 @@ export default function Navbar() {
                                     p={2}
                                     onClick={() => navigate(navItem.href ?? '#')}
                                     fontSize={'sm'}
-                                    fontWeight={{
-                                        base: pathname === navItem.href ? 'bolder' : 'normal',
-
-                                    }}
-                                    color={
-                                        pathname === navItem.href ? 'teal.600' : linkColor
-                                    }
+                                    fontWeight={500}
+                                    color={linkColor}
                                     _hover={{
                                         textDecoration: 'none',
                                         color: linkHoverColor,
@@ -93,9 +89,9 @@ export default function Navbar() {
                         fontSize={'sm'}
                         fontWeight={400}
                         variant={'link'}
-                        onClick={() => navigate('/login')}
+                        onClick={() => navigate('/signup')}
                     >
-                        Login
+                        Registration
                     </Button>
                     <Button
 
@@ -106,9 +102,9 @@ export default function Navbar() {
                         _hover={{
                             bg: 'teal.300',
                         }}
-                        onClick={() => navigate('/signup')}
+                        onClick={() => navigate('/login')}
                     >
-                        Signup
+                        login
                     </Button>
             </Stack>
         )
@@ -158,12 +154,12 @@ export default function Navbar() {
         subLabel: PropTypes.string,
     }
 
+    useEffect(() => {
 
+    },)
 
     return (
-        <Box position={
-            { base: '', md: 'fixed' }
-        } zIndex={100} w="full" top={0}>
+        <Box  zIndex={100} w="full" top={0}>
             <Header />
             <Flex
                 bg={useColorModeValue('white', 'gray.800')}
@@ -218,12 +214,12 @@ export default function Navbar() {
 
 const MobileNav = () => {
     return (
-        <Stack bg={useColorModeValue('white', 'gray.800')} p={4} display={{ lg: 'none' }}>
+        <Stack bg={useColorModeValue('white', 'gray.800')} p={4} display={{ lg: 'none' }} >
             {NAV_ITEMS.map((navItem) => (
                 <MobileNavItem key={navItem.label} {...navItem} />
             ))}
             <Flex justifyContent="center" gap={5}><Button fontSize={'sm'} fontWeight={400} variant={'link'}>
-                Login
+                Registration
             </Button>
             <Button
                 // onClick={() => navigate('/signup')}
@@ -233,7 +229,7 @@ const MobileNav = () => {
                 _hover={{
                     bg: 'teal.300',
                 }}>
-                Signup
+                Login
             </Button></Flex>
         </Stack>
     )

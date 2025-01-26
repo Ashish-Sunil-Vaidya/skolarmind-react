@@ -5,7 +5,7 @@ import { FaPlayCircle } from "react-icons/fa";
 const PhotoGrid = () => {
     return (
         <Box maxW={
-            { base: "100%", md: "90%", lg: "50%" }
+            { base: "100%", md: "90%", lg: "40%" }
         } mx="auto" py={10} >
             {/* Top Section with Video Thumbnail */}
             <Box position="relative">
