@@ -84,28 +84,28 @@ export default function Navbar() {
                         </Popover>
                     </Box>
                 ))}
-                    <Button
-                        display={{ base: 'none', md: 'inline-flex' }}
-                        fontSize={'sm'}
-                        fontWeight={400}
-                        variant={'link'}
-                        onClick={() => navigate('/signup')}
-                    >
-                        Registration
-                    </Button>
-                    <Button
+                <Button
+                    display={{ base: 'none', md: 'inline-flex' }}
+                    fontSize={'sm'}
+                    fontWeight={400}
+                    variant={'link'}
+                    onClick={() => navigate('/signup')}
+                >
+                    Registration
+                </Button>
+                <Button
 
-                        fontSize={'sm'}
-                        fontWeight={600}
-                        color={'white'}
-                        bg={'teal.400'}
-                        _hover={{
-                            bg: 'teal.300',
-                        }}
-                        onClick={() => navigate('/login')}
-                    >
-                        login
-                    </Button>
+                    fontSize={'sm'}
+                    fontWeight={600}
+                    color={'white'}
+                    bg={'teal.400'}
+                    _hover={{
+                        bg: 'teal.300',
+                    }}
+                    onClick={() => navigate('/login')}
+                >
+                    login
+                </Button>
             </Stack>
         )
     }
@@ -159,7 +159,7 @@ export default function Navbar() {
     },)
 
     return (
-        <Box  zIndex={100} w="full" top={0}>
+        <Box zIndex={100} w="full" top={0}>
             <Header />
             <Flex
                 bg={useColorModeValue('white', 'gray.800')}
@@ -213,24 +213,27 @@ export default function Navbar() {
 }
 
 const MobileNav = () => {
+    const navigate = useNavigate()
     return (
         <Stack bg={useColorModeValue('white', 'gray.800')} p={4} display={{ lg: 'none' }} >
             {NAV_ITEMS.map((navItem) => (
                 <MobileNavItem key={navItem.label} {...navItem} />
             ))}
-            <Flex justifyContent="center" gap={5}><Button fontSize={'sm'} fontWeight={400} variant={'link'}>
+            <Flex justifyContent="center" gap={5}><Button fontSize={'sm'} fontWeight={400} variant={'link'}
+                onClick={() => navigate('/signup')}
+            >
                 Registration
             </Button>
-            <Button
-                // onClick={() => navigate('/signup')}
-                // display={{ base: 'none', md: 'inline-flex' }}
-                fontSize={'sm'}
-                fontWeight={600}
-                _hover={{
-                    bg: 'teal.300',
-                }}>
-                Login
-            </Button></Flex>
+                <Button
+                    onClick={() => navigate('/login')}
+                    // display={{ base: 'none', md: 'inline-flex' }}
+                    fontSize={'sm'}
+                    fontWeight={600}
+                    _hover={{
+                        bg: 'teal.300',
+                    }}>
+                    Login
+                </Button></Flex>
         </Stack>
     )
 }
