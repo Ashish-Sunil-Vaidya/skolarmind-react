@@ -97,8 +97,8 @@ export function TestimonialsSection() {
             </Heading>
             <Grid templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap={6}>
                 {testimonials.map((testimonial, index) => (
-                    <GridItem key={index}>
-                        <Box bg="white" p={6} rounded="lg" shadow="md" textAlign="center">
+                    <GridItem key={index} border='1px' rounded='md' borderColor='teal'>
+                        <Box bg="white" p={6} rounded="lg"  textAlign="center">
                             <Avatar size="xl" src={testimonial.avatar} mb={4} />
                             <Heading fontSize="lg" mb={2}>{testimonial.name}</Heading>
                             <Text fontSize="sm" color="gray.500" mb={4}>{testimonial.role}</Text>
@@ -112,50 +112,7 @@ export function TestimonialsSection() {
 }
 
 
-export function ProjectsSection() {
-    const testimonials = [
-        {
-            name: 'Rohit Sharma',
-            role: '10th Grade Student',
-            message: 'The offline exam paper-solving sessions really helped me improve my time management and problem-solving skills!',
-            avatar: '/path/to/student1.jpg' // replace with actual path to the image
-        },
-        {
-            name: 'Anjali Desai',
-            role: 'CBSE Batch Teacher',
-            message: 'It’s always a joy teaching students in live classes. The interactive sessions make learning fun and effective!',
-            avatar: '/path/to/teacher1.jpg' // replace with actual path to the image
-        },
-        {
-            name: 'Priya Singh',
-            role: 'CBSE Batch Student',
-            message: 'The live classes were so helpful, and the teachers provided personal attention to ensure we understood every concept.',
-            avatar: '/path/to/student2.jpg' // replace with actual path to the image
-        }
-    ];
 
-    return (
-        <Box as='section'>
-
-            {/* Testimonials Section */}
-            <Box className="testimonials" py={10} px={5}>
-                <Heading fontSize="3xl" textAlign="center" mb={6}>Happy Students & Teachers</Heading>
-                <Grid templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap={6}>
-                    {testimonials.map((testimonial, index) => (
-                        <GridItem key={index}>
-                            <Box bg="white" p={6} rounded="lg" shadow="md" textAlign="center">
-                                <Avatar size="xl" src={testimonial.avatar} mb={4} />
-                                <Heading fontSize="lg" mb={2}>{testimonial.name}</Heading>
-                                <Box fontSize="sm" color="gray.500" mb={4}>{testimonial.role}</Box>
-                                <Box fontStyle="italic">{testimonial.message}</Box>
-                            </Box>
-                        </GridItem>
-                    ))}
-                </Grid>
-            </Box>
-        </Box>
-    );
-}
 
 export function StatsSection() {
 
@@ -240,7 +197,7 @@ export function DirectorSection() {
                 <VStack align="start" spacing={4}>
                     <Heading fontSize="2xl">John Doe</Heading>
                     <Text fontSize="md" color="gray.600">
-                        Director of XYZ Academy
+                        Director of Skolarmind Academy
                     </Text>
                     <Text fontSize="lg" color="gray.700">
                         "At XYZ Academy, we believe in the power of education to transform
