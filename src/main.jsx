@@ -14,6 +14,7 @@ import "react-photo-album/rows.css";
 import '@fontsource/raleway/400.css'
 import '@fontsource/open-sans/700.css'
 import theme from './theme.js'
+import Courses from './pages/Courses.jsx'
 
 
 const router = createBrowserRouter([{
@@ -27,6 +28,10 @@ const router = createBrowserRouter([{
     {
       path: 'about',
       element: <About />,
+    },
+    {
+      path: 'courses',
+      element: <Courses />,
     },
     {
       path: 'contact',

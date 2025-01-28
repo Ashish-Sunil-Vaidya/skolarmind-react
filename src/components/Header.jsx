@@ -38,7 +38,9 @@ const Header = () => {
 
                     </Box>
                 </Center>
-                    <Flex flex={1} px={3} gap={1} flexWrap='wrap'>
+                    <Flex flex={1} px={3} gap={{
+                        base: 3, sm: 1
+                    }} direction={{base:"column",sm:'row'}}>
                         <IconButton
                             as={Link}
 

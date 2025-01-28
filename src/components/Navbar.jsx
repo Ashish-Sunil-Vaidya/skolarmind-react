@@ -66,7 +66,7 @@ export default function Navbar() {
                                 </Button>
                             </PopoverTrigger>
 
-                            {navItem.children && (
+                            {/* {navItem.children && (
                                 <PopoverContent
                                     border={0}
                                     boxShadow={'xl'}
@@ -80,7 +80,7 @@ export default function Navbar() {
                                         ))}
                                     </Stack>
                                 </PopoverContent>
-                            )}
+                            )} */}
                         </Popover>
                     </Box>
                 ))}
@@ -304,18 +304,7 @@ const NAV_ITEMS = [
     },
     {
         label: 'Courses',
-        children: [
-            {
-                label: '10th Course',
-                subLabel: 'All Subjects',
-                href: '/courses/10th',
-            },
-            {
-                label: 'CBSE Course',
-                subLabel: 'All Subjects',
-                href: '/courses/cbse',
-            },
-        ],
+        href: '/courses',
     },
     {
         label: 'Contact Us',

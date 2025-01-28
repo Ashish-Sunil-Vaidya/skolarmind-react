@@ -37,8 +37,8 @@ const ContactUs = () => {
             p={10}
             minH="100vh"
         >
-            <VStack spacing={8} maxW="700px" mx="auto" align="start">
-               
+            <VStack spacing={8} maxW={{base:'100%',md:"700px"}} mx="auto" align="start">
+
                 <Text fontSize="lg">We would love to hear from you! Please fill out the form below, and we’ll get in touch as soon as possible.</Text>
 
                 <Box
@@ -46,9 +46,9 @@ const ContactUs = () => {
                     onSubmit={handleSubmit}
                     w="100%"
                     bg="white"
-                    p={6}
+                    // p={6}
                     rounded="md"
-                    shadow="md"
+                    // shadow="md"
                 >
                     <FormControl id="name" isRequired mb={4}>
                         <FormLabel>Your Name</FormLabel>
@@ -91,7 +91,7 @@ const ContactUs = () => {
                         type="submit"
                         colorScheme="teal"
                         size="lg"
-                        w="100%"
+                        w={{base:"100%",md:'fit-content'}}
                     >
                         Send Message
                     </Button>

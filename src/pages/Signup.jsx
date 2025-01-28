@@ -2,6 +2,7 @@ import BreadCrumbs from "../components/BreadCrumbs";
 import { Box, Button, Checkbox, FormControl, FormLabel, Grid, Heading, HStack, Input, Select, Text, VStack, Flex } from "@chakra-ui/react";
 ;
 import { useState } from "react";
+import Footer from "../components/Footer";
 
 const Signup = () => {
     const [isParent, setIsParent] = useState(true);
@@ -10,12 +11,10 @@ const Signup = () => {
     return (
         <>
             <BreadCrumbs currentTab="Registration" />
-            <Box maxW="7xl" mx="auto" p={10}>
+            <Box maxW={{base:'100%',md:"7xl"}} mx="auto" p={{base:2,md:10}}>
                 <Box textAlign="center" mb={6}>
-                    <Text fontSize="sm" color="teal.500">
-                        Student Registration Form
-                    </Text>
-                    <Heading as="h1" size="lg">
+
+                    <Heading as="h1" size="lg" mt={10}>
                         Student Registration Form
                     </Heading>
                     <Text fontSize="sm" color="gray.600" mt={2}>
@@ -23,7 +22,7 @@ const Signup = () => {
                     </Text>
                 </Box>
 
-                <VStack spacing={6}  p={10} border='2px' rounded='md' borderColor='gray.200'>
+                <VStack spacing={6}  p={{base:5,md:10}} border='2px' rounded='md' borderColor='gray.200'>
                     {/* Personal Details */}
                     <Grid templateColumns={{ sm: '1fr', md: 'repeat(3, 1fr)' }} gap={4} width="full">
                         <FormControl id="firstName" isRequired>
@@ -223,6 +222,7 @@ const Signup = () => {
                     </Button>
                 </VStack>
             </Box>
+            <Footer />
         </>
     )
 }

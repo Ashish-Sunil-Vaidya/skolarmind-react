@@ -15,23 +15,23 @@ import { base } from "framer-motion/client";
 const Home = () => {
     const carouselData = [
         {
-            caption: "First Slide",
-            text: "This is the first slide",
+            // caption: "First Slide",
+            // text: "This is the first slide",
             img: slides[0]
         },
         {
-            caption: "Second Slide",
-            text: "This is the second slide",
+            // caption: "Second Slide",
+            // text: "This is the second slide",
             img: slides[1]
         },
         {
-            caption: "Third Slide",
-            text: "This is the third slide",
+            // caption: "Third Slide",
+            // text: "This is the third slide",
             img: slides[2]
         },
         {
-            caption: "Fourth Slide",
-            text: "This is the fourth slide",
+            // caption: "Fourth Slide",
+            // text: "This is the fourth slide",
             img: slides[3]
         }
     ];
@@ -109,7 +109,7 @@ export const AboutSection = () => {
 
 
     return (
-        <Box position="relative" p={{ base: "50px", md: "100px" }}  display='flex'>
+        <Box position="relative" p={{ base: "20px", md: "100px" }}  display='flex'>
             <Flex direction={{ base: 'column', md: 'row' }} align="center" justify="space-between">
                 <Box flex={1} mr={{ md: 10 }} mb={{ base: 10, md: 0 }}>
                     <Stack spacing={4}>

@@ -32,7 +32,7 @@ const Login = () => {
     const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
     return (
-        <Box w='100svw' h='100svw' bgImage={loginnbg} bgSize='cover'>
+        <Box w='100svw' h='100svh' bgImage={loginnbg} bgSize='cover'>
             {/* Modal Overlay */}
             <Modal isOpen={true} >
                 <ModalOverlay />
